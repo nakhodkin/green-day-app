@@ -10,6 +10,7 @@ import {
 import firebase from 'firebase';
 import { Input } from './Input';
 import { Button } from './Button';
+import { LiveUpdate } from './LiveUpdate';
 
 export default class Login extends React.Component {
     state = {
@@ -32,7 +33,7 @@ export default class Login extends React.Component {
     }
 
     componentDidMount() {
-        // AsyncStorage.removeItem('user');
+        AsyncStorage.removeItem('user');
         this.loadInitialState().done();
     }
   
@@ -81,6 +82,7 @@ export default class Login extends React.Component {
   
       return (
         <View style={styles.form}>
+          <LiveUpdate />
           <Text style={styles.header}>- LOGIN -</Text>  
           <Input
             placeholder="Enter your email..."
